@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Obstcale
   - Ground
+  - bad
   layers:
   - Default
   - TransparentFX

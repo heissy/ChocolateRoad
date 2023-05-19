@@ -15,11 +15,12 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameOverText.gameObject.SetActive(true);
+        UpdateScore(0);
     }
 
     public void StartGame(int difficulty)
     {
+
         score = 0;
         UpdateScore(0);
         UpdateLives(3);
