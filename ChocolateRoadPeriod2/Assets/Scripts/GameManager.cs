@@ -67,6 +67,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        //Check if the player has pressed the p key
         if (Input.GetKeyDown(KeyCode.P))
         {
             ChangePaused();
