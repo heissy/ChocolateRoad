@@ -7,7 +7,7 @@ public class SpawnManager : MonoBehaviour
     public GameObject objectToSpawn;
     public Transform spawnPoint;
     public float spawnInterval = 2f;
-    public spawnTimer;
+    public spawnTimer
 
     // Start is called before the first frame update
     void Start()
