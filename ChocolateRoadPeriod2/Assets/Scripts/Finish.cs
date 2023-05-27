@@ -5,11 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class Finish : MonoBehaviour
 {
-   private void onTriggerEnter(Collider other)
+    public string LevelName;
+    
+
+    // Start is called before the first frame update
+    void Start()
     {
-        if (other.gameObject.name == "Player")
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
+        
+    }
+
+    // Update is called once per frame
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Player")
+        SceneManager.LoadScene(LevelName);
     }
 }
