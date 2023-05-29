@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Collectable : MonoBehaviour
 {
     public int value;
-    public Text scoreText;
+    public TextMeshProUGUI scoreText;
 
-    int score = 0;
+    int score = 10;
+
+    private ScoreManager scoreManager;
 
     // Update is called once per frame
     void Update()
@@ -17,7 +20,7 @@ public class Collectable : MonoBehaviour
     }
     void Start()
     {
-        scoreText.text = score.ToString() + " POINTS";
+        scoreManager = FindObjectOfType<ScoreManager>();
     }
 
     void OnTriggerEnter(Collider other)
@@ -26,5 +29,17 @@ public class Collectable : MonoBehaviour
 
         AudioSource source = GetComponent<AudioSource>();
         source.Play();
+
+        if (other.CompareTag("Player"))
+        {
+            scoreManager.IncreaseScore(score);
+        }
+
+    }
+
+    void OnPlayerEnter (PlayerController player)
+    {
+        
+      
     }
 }
