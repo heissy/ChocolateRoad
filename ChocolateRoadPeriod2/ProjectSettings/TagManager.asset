@@ -7,6 +7,7 @@ TagManager:
   - Obstcale
   - Ground
   - bad
+  - target
   layers:
   - Default
   - TransparentFX
