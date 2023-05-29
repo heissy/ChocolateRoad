@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     private int lives;
     public GameObject pauseScreen;
     private bool paused;
+    public static GameManager instance = null;
 
     // Start is called before the first frame update
     void Start()
@@ -41,7 +42,6 @@ public class GameManager : MonoBehaviour
         StartCoroutine(SpawnTarget());
         score = 0;
         spawnRate /= difficulty;
-        UpdateScore(0);
         titleScreen.gameObject.SetActive(false);
         UpdateLives(3);
     }
@@ -80,10 +80,23 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void UpdateScore(int scoreToAdd)
+    void Awake()
     {
-        score += scoreToAdd;
-        scoreText.text = "Score:" + score;
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != null)
+        {
+            Destroy(gameObject);
+        }
+           
+    }
+
+    public void Collect(int passedValue, GameObject passedObject)
+    {
+        passedObject.GetComponent<Renderer>().enabled = false;
+        Destroy(passedObject, 1.0f);
     }
 
     public void GameOver()
