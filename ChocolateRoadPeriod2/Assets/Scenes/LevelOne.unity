@@ -1045,7 +1045,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 292.13
-  turnSpeed: 37.34
+  turnSpeed: 40.96
 --- !u!82 &135009599
 AudioSource:
   m_ObjectHideFlags: 0
